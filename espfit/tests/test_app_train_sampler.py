@@ -68,7 +68,9 @@ def test_train_sampler(test_load_dataset, test_create_espaloma_from_toml):
     # Train
     sampler_patience = 10
     # Force sampler to run after reaching sampler patience by setting neff_threshold to 1.0
-    model.train_sampler(sampler_patience=sampler_patience, neff_threshold=1.0, sampler_weight=1)
+    # Set debug=True to use espaloma-0.3.2.pt instead of on-the-fly intermediate espaloma model.
+    # Epochs are too short for stable espaloma model.
+    model.train_sampler(sampler_patience=sampler_patience, neff_threshold=1.0, sampler_weight=1, debug=True)
 
     # Check outputs
     n_ckpt = len(glob.glob(os.path.join(model.output_directory_path, 'ckpt*pt')))

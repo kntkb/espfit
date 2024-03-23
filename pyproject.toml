@@ -63,7 +63,10 @@ where = ["."]
 # Ref https://setuptools.pypa.io/en/latest/userguide/datafiles.html#package-data
 [tool.setuptools.package-data]
 espfit = [
-    "py.typed"
+    "py.typed",
+    "data/target/nucleoside/*/target.pdb",
+    "data/target/nucleoside/*/experiment.yml",
+    "data/forcefield/espaloma-0.3.2.pt"
 ]
 
 [tool.versioningit]
